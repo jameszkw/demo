@@ -1,9 +1,14 @@
 package com.james.secu.symmetricencryption;
 
+import java.security.Key;
+
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 import com.james.secu.coderutil.CodeUtils;
 
@@ -19,22 +24,10 @@ public class AES {
 	 * @return
 	 * @throws Exception
 	 */
-	public static SecretKey genSecretKey() throws Exception{
-		String base64Key = genKeyAES();
-		return loadKeyAES(base64Key);
-	}
-	
-	public static String genKeyAES() throws Exception{
-		KeyGenerator keyGen = KeyGenerator.getInstance("AES");
-		keyGen.init(128);
-		SecretKey key = keyGen.generateKey();
-		String base64Str = CodeUtils.byte2base64(key.getEncoded());
-		return base64Str;
-	}
-	
-	private static SecretKey loadKeyAES(String base64Key) throws Exception{
-		byte[] bytes = CodeUtils.base642byte(base64Key);
-		SecretKey key = new SecretKeySpec(bytes,"AES");
+	private static Key genSecretKey(String keyStr) throws Exception{
+		byte[] keyAsBytes;
+		keyAsBytes = keyStr.getBytes("UTF-8");
+		Key key = new SecretKeySpec(keyAsBytes, "AES");
 		return key;
 	}
 	
@@ -45,11 +38,13 @@ public class AES {
 	 * @return
 	 * @throws Exception
 	 */
-	public static byte[] encryptAES(byte[] source,SecretKey key) throws Exception{
-		Cipher cipher = Cipher.getInstance("AES");
-		cipher.init(Cipher.ENCRYPT_MODE, key);
-		byte[] bytes = cipher.doFinal(source);
-		return bytes;
+	public static String encryptAES(byte[] source,String keyStr) throws Exception{
+		Key key = genSecretKey(keyStr);
+		Cipher c = Cipher.getInstance("AES");
+		c.init(Cipher.ENCRYPT_MODE, key);
+		byte[] encValue = c.doFinal(source);
+		String encryptedValue = CodeUtils.byte2base64(encValue);
+		return encryptedValue;
 	}
 	
 	/**
@@ -59,22 +54,25 @@ public class AES {
 	 * @return
 	 * @throws Exception
 	 */
-	public static byte[] decryptAES(byte[] source,SecretKey  key) throws Exception{
-		Cipher cipher = Cipher.getInstance("AES");
-		cipher.init(Cipher.DECRYPT_MODE, key);
-		byte[] bytes = cipher.doFinal(source);
-		return bytes;
+	public static String decryptAES(String encryptedValue,String keyStr) throws Exception{
+		Key key = genSecretKey(keyStr);
+		Cipher c = Cipher.getInstance("AES");
+		c.init(Cipher.DECRYPT_MODE, key);
+		byte[] decordedValue = CodeUtils.base642byte(encryptedValue);
+		byte[] decValue = c.doFinal(decordedValue);
+		String decryptedValue = new String(decValue);
+		return decryptedValue;
 	}
 	
 	public static void main(String[] args) {
 		try {
-			String demo = "hello,i am james,good night!";
-			SecretKey key = genSecretKey();
-			byte[] encryptDemo = encryptAES(demo.getBytes(),key);
-			//encrypt
-			System.out.println(CodeUtils.byte2base64(encryptDemo));
-			//decrypt
-			String decrpteDemo = new String(decryptAES(encryptDemo,key));
+//			String demo = "hello,i am james,good night!";
+//			String encryptDemo = encryptAES(demo.getBytes(),"U4b6CL23wfpULFdU");
+//			//encrypt
+//			System.out.println(encryptDemo);
+//			//decrypt
+//			String decrpteDemo = new String(decryptAES(encryptDemo,"U4b6CL23wfpULFdU"));
+			String decrpteDemo = new String(decryptAES("9jXAL9b7EWNazyVScbxML6595I+kbYSEE+csuGzMitbeqWLR0StHSF6LydPp3PzQf3WJpxa4KHUfyzp/zFX7VsNl0npfmAmQACYmxNhrnzZ3Xj5odmU6yqd2p9Cfa6R6AOFO1j0jP3IuuNvsUF5PBP06xZtth7eMFwGo2uKnLy+WCkm4v67ZX4A+Rm7rFQw9sdRir1ZO90SrkfcVzxvXR92mJgAyJE1eGVQH5QignYKpQEPhewSCZnW6CyD+Zck9BDpWdHwUh1pms7qRL+Jv5hMeW9xtlbfgsM0+NCEPdkKavBFBpTq0Tl6EBcU4WgVPMEHkmuS8VMdPN0uz3ysv4g==","U91zXgc00spsBxOo"));
 			System.out.println(decrpteDemo);
 		} catch (Exception e) {
 			e.printStackTrace();
