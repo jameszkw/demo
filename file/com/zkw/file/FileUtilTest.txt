@@ -1,0 +1,24 @@
+[
+{
+total: 6748936
+id: DevMapperVolGroupLvRoot
+files: 429088
+free: 4039696
+freeFiles: 357961
+avail: 3696864
+devName: DevMapperVolGroupLvRoot
+used: 2709240
+usePercent: 0.43
+}
+{
+total: 495844
+id: DevSda1
+files: 128016
+free: 463427
+freeFiles: 127978
+avail: 437827
+devName: DevSda1
+used: 32417
+usePercent: 0.07
+}
+]
