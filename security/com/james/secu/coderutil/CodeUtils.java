@@ -2,6 +2,8 @@ package com.james.secu.coderutil;
 
 import java.io.IOException;
 
+import org.apache.commons.codec.binary.Base64;
+
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
@@ -68,7 +70,17 @@ public class CodeUtils {
 		return bytes;
 	}
 	
+	private void string2Base64(){
+		String str = "Password";
+		System.out.println(Base64.encodeBase64String(str.getBytes()));
+	}
+	private void base642String(){
+		System.out.println(new String(Base64.decodeBase64("UGFzc3dvcmQ")));
+	}
+	
 	public static void main(String[] args) {
-		
+		CodeUtils cu = new CodeUtils();
+		cu.string2Base64();
+		cu.base642String();
 	}
 }
