@@ -13,7 +13,20 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
+<repositories>
+        <!-- fit2cloud  aliyun sdk begin-->
+         <repository>
+			<id>fit2cloud</id>
+			<url>http://repository.fit2cloud.com/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+        <!-- fit2cloud  aliyun sdk end-->
+	</repositories>
   <dependencies>
     <dependency>
 			<groupId>junit</groupId>
@@ -138,5 +151,12 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- fit2cloud  aliyun sdk begin -->
+  		 <dependency>
+  			<groupId>com.fit2cloud</groupId>
+  			<artifactId>aliyun-api-java-wrapper</artifactId>
+  			<version>1.1</version>
+		</dependency>
+  		<!-- fit2cloud  aliyun sdk end -->
   </dependencies>
 </project>
