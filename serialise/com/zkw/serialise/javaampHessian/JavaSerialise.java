@@ -33,7 +33,7 @@ public class JavaSerialise {
 	public static void main(String[] args) {
 		try {
 			serialiser();
-		} catch (IOException | ClassNotFoundException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -14,7 +14,7 @@ public class ResourceLoading {
 			Class cls = Class.forName("com.zkw.classloader.resourceload.Test");
 			Test test = (Test)cls.newInstance();
 			test.echo();
-		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		//second
