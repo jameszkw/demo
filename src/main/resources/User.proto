@@ -1,0 +1,8 @@
+option java_package = "com.xtwy.pb";
+option java_outer_classname = "UserProtobuf";
+
+message User{
+    required int32 id = 1;
+    required string username = 2;
+    optional string phone = 3;
+}
