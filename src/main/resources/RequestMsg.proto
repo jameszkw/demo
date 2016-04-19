@@ -1,4 +1,4 @@
-option java_package = "com.xtwy.pb";
+option java_package = "com.xtwy.pb.protocol";
 option java_outer_classname = "RequestMsgProtobuf";
 
 message RequestMsg{
