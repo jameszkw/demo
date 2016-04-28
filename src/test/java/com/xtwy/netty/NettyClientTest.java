@@ -14,7 +14,7 @@ public class NettyClientTest {
                 long start = System.currentTimeMillis();
                 Object obj = DiscardClient.startClient(i);
                 if (obj==null){
-                    throw new RuntimeException("返回数据为空");
+                    throw new RuntimeException("返回数据空");
                 }
                 System.out.println("client's data: "+obj);
                 long end = System.currentTimeMillis();
