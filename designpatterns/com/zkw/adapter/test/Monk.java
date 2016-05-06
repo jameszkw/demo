@@ -3,5 +3,8 @@ package com.zkw.adapter.test;
 /**
  * Created by Administrator on 2016/5/3 0003.
  */
-public class Monk {
+public interface Monk {
+    public void readbook();
+    public void eating();
+    public void sitting();
 }

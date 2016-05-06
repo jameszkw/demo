@@ -3,5 +3,8 @@ package com.zkw.adapter.DefultAdapter;
 /**
  * Created by Administrator on 2016/5/3 0003.
  */
-public class AbstractService {
+public interface AbstractService {
+    public void serviceOperation1();
+    public int serviceOperation2();
+    public String serviceOperation3();
 }
