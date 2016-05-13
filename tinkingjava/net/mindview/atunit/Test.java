@@ -1,5 +1,5 @@
 //: net/mindview/atunit/Test.java
-// The @Test tag.
+// The @Facade tag.
 package net.mindview.atunit;
 import java.lang.annotation.*;
 

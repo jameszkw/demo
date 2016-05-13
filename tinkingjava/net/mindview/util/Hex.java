@@ -18,7 +18,7 @@ public class Hex {
   }
   public static void main(String[] args) throws Exception {
     if(args.length == 0)
-      // Test by displaying this class file:
+      // Facade by displaying this class file:
       System.out.println(
         format(BinaryFile.read("Hex.class")));
     else

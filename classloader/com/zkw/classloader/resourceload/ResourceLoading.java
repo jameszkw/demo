@@ -11,7 +11,7 @@ public class ResourceLoading {
 	public static void main(String[] args) {
 		//first
 		try {
-			Class cls = Class.forName("com.zkw.classloader.resourceload.Test");
+			Class cls = Class.forName("com.zkw.classloader.resourceload.Facade");
 			Test test = (Test)cls.newInstance();
 			test.echo();
 		} catch (Exception e) {
@@ -22,7 +22,7 @@ public class ResourceLoading {
 			ClassLoader cl = new ClassLoader() {
 				
 			};
-			Class cls = cl.loadClass("com.zkw.classloader.resourceload.Test");
+			Class cls = cl.loadClass("com.zkw.classloader.resourceload.Facade");
 			
 			
 		} catch (ClassNotFoundException e) {
