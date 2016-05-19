@@ -1,5 +1,8 @@
 package com.zkw.parameter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @ClassName: MethodParamDemo
  * @Description: TODO(describe what to do this class)
@@ -8,21 +11,45 @@ package com.zkw.parameter;
  *
  */
 public class MethodParamDemo {
-	private String param;
-	private String method1(String param){
+	private static String param;
+	private static int i;
+	private List list = new ArrayList();
+	private static Integer in;
+	private void method1(String param){
 		param = "1";
-		return param;
 	}
-	private void method2(String param){
-		param = "2";
+	private void method2(MethodParamDemo demo){
+		demo.param = "2";
 	}
-	private void method3(String param){
-		param = "3";
+
+	private void method3(List list){
+		list.add(0,1);
 	}
-	
+
+	private void method4(int i){
+		i = 9;
+	}
+
+	private void method5(Integer i){
+		i=8;
+	}
+
 	public static void main(String[] args) {
 		MethodParamDemo demo = new MethodParamDemo();
-		demo.param = demo.method1(demo.param);
+		demo.method1(demo.param);
 		System.out.println(demo.param);
+		//对象传入方法，不返回
+		demo.method2(demo);
+		System.out.println(demo.param);
+		//list传入方法，不返回
+		MethodParamDemo methodParamDemo = new MethodParamDemo();
+		demo.method3(methodParamDemo.list);
+		System.out.println(methodParamDemo.list.get(0));
+		//int传入方法，不返回
+		demo.method4(i);
+		System.out.println(i);
+		//Integer传入方法，不返回
+		demo.method5(in);
+		System.out.println(in);
 	}
 }
