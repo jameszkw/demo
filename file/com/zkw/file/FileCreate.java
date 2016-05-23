@@ -1,6 +1,7 @@
 package com.zkw.file;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * @Description: TODO create directory
@@ -23,7 +24,16 @@ public class FileCreate {
 		}
 
 	}
-	
+
+	private void directory(){
+		File directory = new File("D:\\workspacesource\\TOMCAT_7_0_47/lib");
+		try {
+			directory = directory.getCanonicalFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) {
 		try{
 			FileCreate fc =new FileCreate();

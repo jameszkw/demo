@@ -9,7 +9,8 @@ import java.util.Map;
 public class CastExcetion {
     public static Map m=new HashMap(){
         {
-            put("a","2");
+//            put("a","2"); //ClassCastException
+            m.put("a","2"); //ExceptionInInitializerError
         }
     };
     public static void main(String[] args) {
