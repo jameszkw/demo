@@ -203,5 +203,13 @@
 		  <version>3.2.2</version>
 	  </dependency>
 
+	  <!--jmx begin-->
+	  <dependency>
+		  <groupId>com.sun.jdmk</groupId>
+		  <artifactId>jmxtools</artifactId>
+		  <version>1.2.1</version>
+	  </dependency>
+	  <!--jmx end-->
+
   </dependencies>
 </project>
