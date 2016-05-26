@@ -5,8 +5,8 @@ package com.zkw.array.copy;
  */
 public class ArrayCopyMain {
     public static void main(String[] args) {
-        String[] des=new String[6];
         String[] strs=new String[3];
+        String[] des=new String[strs.length+1];
         strs[0]="0";
         strs[1]="1";
         strs[2]="2";
