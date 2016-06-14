@@ -7,6 +7,8 @@ import java.util.Map;
  */
 public class MapArrayDemo {
     public static void main(String[] args) {
-        Map<String,String[]>
+
     }
+
+
 }
