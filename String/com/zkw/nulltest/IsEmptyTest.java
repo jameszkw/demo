@@ -18,11 +18,14 @@ public class IsEmptyTest {
 	}
 	
 	public static void main(String[] args) {
-		String str = "";
+		String str = " ";
 		System.out.println("fff"+str+"fff");
 		System.out.println("fff"+str.trim()+"fff");
 		System.out.println(str.equals(" "));
 		System.out.println(str.isEmpty());
 		isBlankString(str);
+
+		System.out.println(str.length());
+		System.out.println(str.equals(""));
 	}
 }

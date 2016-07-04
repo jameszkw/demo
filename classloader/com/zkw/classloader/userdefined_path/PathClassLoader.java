@@ -4,26 +4,32 @@ import java.io.*;
 
 /**
  * Created by Administrator on 2016/5/19 0019.
- * 自定义路径下加载class文件
+ * 继承ClassLoader加载指定类文件
  */
 public class PathClassLoader extends ClassLoader {
     private String classPath;
     private String packageName="net.xulingbo.classloader";
 
-    public PathClassLoader(ClassLoader parent, String classPath) {
-        super(parent);
+    public PathClassLoader(String classPath) {
         this.classPath = classPath;
     }
 
-//    @Override
-//    protected Class<?> findClass(String name) throws ClassNotFoundException {
-//        if (packageName.startsWith(name)){
-////            byte[] classData=
-//        }
-//    }
+    @Override
+    protected Class<?> findClass(String name) throws ClassNotFoundException {
+        if (packageName.startsWith(name)){
+            byte[] classData=getData(name);
+            if (classData == null){
+                throw new ClassNotFoundException();
+            } else {
+                return defineClass(name,classData,0,classData.length);
+            }
+        }else {
+            return super.loadClass(name);
+        }
+    }
 
     private byte[] getData(String className){
-        String path=classPath+ File.separatorChar+className.replace('.',File.separatorChar)+"class";
+        String path=classPath+ File.separatorChar+className.replace('.',File.separatorChar)+".class";
         try {
             InputStream is=new FileInputStream(path);
             ByteArrayOutputStream stream=new ByteArrayOutputStream();
@@ -37,5 +43,15 @@ public class PathClassLoader extends ClassLoader {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void main(String[] args) {
+        String path="D:\\workspacemine\\demo\\src\\main\\java";
+        PathClassLoader classLoader=new PathClassLoader(path);
+        try {
+            classLoader.findClass("ByteCodeDemo");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
