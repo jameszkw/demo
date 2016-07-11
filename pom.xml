@@ -138,12 +138,12 @@
 	<dependency>
 		<groupId>org.ow2.asm</groupId>
 		<artifactId>asm</artifactId>
-		<version>5.0.4</version>
+		<version>5.0.3</version>
 	</dependency>
 	<dependency>
 		<groupId>org.ow2.asm</groupId>
 		<artifactId>asm-commons</artifactId>
-		<version>5.0.4</version>
+		<version>5.0.3</version>
 	</dependency>
 	
 	<!-- asm end -->
@@ -210,6 +210,18 @@
 		  <version>1.2.1</version>
 	  </dependency>
 	  <!--jmx end-->
+
+	  <dependency>
+		  <groupId>commons-collections</groupId>
+		  <artifactId>commons-collections</artifactId>
+		  <version>3.2.2</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>commons-beanutils</groupId>
+		  <artifactId>commons-beanutils</artifactId>
+		  <version>1.9.2</version>
+	  </dependency>
+
 
   </dependencies>
 </project>
