@@ -1,16 +1,17 @@
+import com.zkw.java.justtest.WithDraw;
+
 import java.io.File;
 
 /**
  * Created by Administrator on 2016/6/20 0020.
  */
 public class JustTest {
+    private static void test(){
+        WithDraw withDraw = new WithDraw();
+        withDraw.setAccountid(null);
+        System.out.println(withDraw.getAccountid());
+    }
     public static void main(String[] args) {
-        String se=String.valueOf(File.separatorChar);
-        System.out.println(se);
-        char c=(char)-1;
-        System.out.println("ddd"+c+"ddd");
-
-        String str="\\";
-        System.out.println(str.indexOf(se));
+        test();
     }
 }

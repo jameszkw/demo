@@ -15,6 +15,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
@@ -51,8 +52,28 @@ public class HttpClientDemo {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
     }
+
+	private static void postxml(String url, String xml){
+		try {
+			HttpPost httpost = new HttpPost(url);
+
+			System.out.println("set utf-8 form entity to httppost");
+			httpost.setEntity(new StringEntity(xml));
+			httpost.setHeader("Content-Type", "text/xml; charset=UTF-8");
+			HttpClient httpClient = new DefaultHttpClient();
+			HttpResponse httpResponse = httpClient.execute(httpost);
+			int statusCode = httpResponse.getStatusLine().getStatusCode();
+			if (statusCode != 200) {
+				System.out.println(statusCode);
+			}
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 	
 	private static void scheduleTask_testjames() throws ParseException, JsonGenerationException, JsonMappingException, IOException{
 		Map<String, String> params = new HashMap<String,String>();
@@ -67,7 +88,7 @@ public class HttpClientDemo {
 		params.put("mvu", "300");
 		ObjectMapper om = new ObjectMapper();
 		String json = om.writeValueAsString(params);
-		post("http://localhost:8080/testingcc/oapi/web/scheduleTask", params);
+		post("http://localhost:8040/acctmerchant/withdraw/applyWithDrawMer", params);
 		
 	}
 	

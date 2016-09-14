@@ -85,17 +85,22 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.4.1</version>
 		</dependency>
+	  <dependency>
+		  <groupId>commons-httpclient</groupId>
+		  <artifactId>commons-httpclient</artifactId>
+		  <version>3.1</version>
+	  </dependency>
      	<!-- leveldbjni for native emded db -->
 		<dependency>
 			<groupId>org.fusesource.leveldbjni</groupId>
 			<artifactId>leveldbjni-all</artifactId>
 			<version>1.7</version>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.apache.zookeeper</groupId>
 			<artifactId>zookeeper</artifactId>
 			<version>3.4.6</version>
-		</dependency> -->
+		</dependency>
 		
 		<!-- jetty & jersey begin-->
 	<dependency>
@@ -221,6 +226,14 @@
 		  <artifactId>commons-beanutils</artifactId>
 		  <version>1.9.2</version>
 	  </dependency>
+
+	  <dependency>
+		  <groupId>mysql</groupId>
+		  <artifactId>mysql-connector-java</artifactId>
+		  <version>5.1.39</version>
+	  </dependency>
+
+
 
 
   </dependencies>

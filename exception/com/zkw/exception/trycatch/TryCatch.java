@@ -28,6 +28,10 @@ public class TryCatch{
 		}
 		System.out.println("outside method2");
 	}
+
+	private void method3(){
+
+	}
 	public static void main(String[] args) {
 		method2();
 	}

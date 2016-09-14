@@ -1,5 +1,7 @@
 package com.zkw.DateUtils;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -40,11 +42,22 @@ public class DateUtils {
 		Date currDate = new Date(millis);
 		return currDate;
 	}
-	
+
+	public static String tomorrow(){
+		Date date=new Date();
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.add(calendar.DATE,1);//把日期往后增加一天.整数往后推,负数往前移动
+		date=calendar.getTime(); //这个时间就是日期往后推一天的结果
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+		String dateString = formatter.format(date);
+		return dateString;
+	}
 	public static void main(String[] args) {
 //		System.out.println(getDateByInt(1399442729358));
 		Date date = new Date();
 		System.out.println(date.getTime());
 //		System.out.println(millisTurnDate(Long.parseLong("1401423929206")));
+		System.out.println(tomorrow());
 	}
 }

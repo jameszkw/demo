@@ -1,5 +1,9 @@
 package com.zkw.string.substing;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @Description: TODO(这里用一句话描述这个类的作用)
  * @author James.zhang
@@ -7,6 +11,27 @@ package com.zkw.string.substing;
  *
  */
 public class SubStringTest {
+	static String orderstatus_str = "orderstatus";
+	static String orderstatusdesc_str = "orderstatusdesc";
+	static String tranamt_str = "tranamt";
+	static String merorderno_str = "merorderno";
+
+	private Map<String,String> params2SignStr(Map<String,String> params){
+		String orderstatus = params.get(orderstatus_str);
+		String orderstatusdesc = params.get(orderstatusdesc_str);
+		String tranamt = params.get(tranamt_str);
+		String merorderno = params.get(merorderno_str);
+		String[] strs = new String[]{"orderstatus","orderstatusdesc","tranamt","merorderno"};
+		Arrays.sort(strs);
+		String sign = "";
+		for(String str : strs) {
+			sign +=  str+"="+params.get(str)+"&";
+		}
+		sign = sign.substring(0,sign.lastIndexOf("&"));
+		params.put("sign",sign);
+		return params;
+	}
+
 	private void subBehand(String str){
 		str = str.substring(0, str.length()-9);
 		System.out.println(str);
@@ -51,7 +76,16 @@ public class SubStringTest {
 //		stringTest.subBehand(str);
 //		stringTest.subBehand(strDay);
 //		stringTest.subBehand(strHour);
-		stringTest.subFunctionName("duringAfterHappen(0,s)");
-		stringTest.getParam("duringAfterHappen(0,s)");
+		/**------------------------------------------*/
+//		stringTest.subFunctionName("duringAfterHappen(0,s)");
+//		stringTest.getParam("duringAfterHappen(0,s)");
+
+		Map<String,String> params = new HashMap<String, String>();
+		params.put(orderstatus_str,"ddd");
+		params.put(orderstatusdesc_str,"ccc");
+		params.put(tranamt_str,"eee");
+		params.put(merorderno_str,"fff");
+		params = stringTest.params2SignStr(params);
+		System.out.println(params.toString());
 	}
 }

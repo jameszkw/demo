@@ -9,7 +9,13 @@ import java.util.StringTokenizer;
  * 
  */
 public class StringTokenizerTest {
-	public static void main(String[] args) {
+	public static void trimTest(){
+		String str = "";
+//		str.trim();
+		System.out.println("dd"+str+"dd");
+	}
+
+	public void test(){
 		String buf = "traceroute to 9.9.9.9 (9.9.9.9), 30 hops max, 60 byte packets\n"+
 				" 1  10.0.1.1  0.338 ms  *  0.311 ms\n"+
 				" 2  124.207.192.113  2.165 ms *  2.798 ms\n"+
@@ -50,7 +56,7 @@ public class StringTokenizerTest {
 		while (st.hasMoreElements()) {
 			elements[i] = st.nextToken();
 //			System.out.println(elements[i]);
-			
+
 			StringTokenizer stInner = new StringTokenizer(elements[i], " ", false);
 			String[] elementsInner = new String[stInner.countTokens()];
 			int j = 0;
@@ -63,6 +69,10 @@ public class StringTokenizerTest {
 			}
 			i++;
 		}
+	}
+
+	public static void main(String[] args) {
+		trimTest();
 		
 	}
 	
