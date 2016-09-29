@@ -11,7 +11,13 @@ public class JustTest {
         withDraw.setAccountid(null);
         System.out.println(withDraw.getAccountid());
     }
+    private static void test2(String... strs){
+
+    }
     public static void main(String[] args) {
         test();
+        String str1 = "1";
+        String[] str2 = new String[2];
+        test2(str1);
     }
 }

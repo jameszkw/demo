@@ -1,6 +1,8 @@
 package com.zkw.clonedemo;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016/9/14 0014.
@@ -52,6 +54,24 @@ public class CloneDemo {
         System.out.println("学生s1的姓名：" + s1.name + "\n学生s1教授的姓名：" + s1.p.name + "," + "\n学生s1教授的年纪" + s1.p.age);// 学生1的教授
     }
 
+    /**
+     * 集合克隆
+     * @throws CloneNotSupportedException
+     */
+    private void collectionClone() throws CloneNotSupportedException {
+        CollectionClone collectionClone = new CollectionClone();
+        Map map = new HashMap();
+        map.put("key1","v1");
+        map.put("key2","v2");
+        map.put("key3","v3");
+        collectionClone.setBody(map);
+        CollectionClone collectionClone1 = (CollectionClone)collectionClone.clone();
+        collectionClone1.getBody().put("key1","value1");
+        System.out.println(collectionClone.getBody().get("key1"));
+        System.out.println(collectionClone1.getBody().get("key1"));
+
+    }
+
 
 
     public static void main(String[] args) {
@@ -65,11 +85,17 @@ public class CloneDemo {
             e.printStackTrace();
         }*/
 
-        try {
+        /*try {
             cloneDemo.deepCloneTestSerial();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }*/
+
+        try {
+            cloneDemo.collectionClone();
+        } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
     }
