@@ -67,19 +67,21 @@ public class SubStringTest {
 		}
 		return params;
 	}
-			
-	public static void main(String[] args) {
-		SubStringTest stringTest = new SubStringTest();
-//		String str = "site_data_20140213";
-//		String strDay = "site_day_data_20130409";
-//		String strHour = "site_hour_data_20130603";
-//		stringTest.subBehand(str);
-//		stringTest.subBehand(strDay);
-//		stringTest.subBehand(strHour);
-		/**------------------------------------------*/
-//		stringTest.subFunctionName("duringAfterHappen(0,s)");
-//		stringTest.getParam("duringAfterHappen(0,s)");
 
+	/**
+	 * 通过for语句截取字符串
+	 */
+	private static String forSubstring(String name){
+		String beanName;
+		for(beanName = name; beanName.startsWith("&"); beanName = beanName.substring("&".length())) {
+			;
+		}
+		return beanName;
+	}
+
+	//test begin
+	private void testParams2SignStr(){
+		SubStringTest stringTest = new SubStringTest();
 		Map<String,String> params = new HashMap<String, String>();
 		params.put(orderstatus_str,"ddd");
 		params.put(orderstatusdesc_str,"ccc");
@@ -87,5 +89,26 @@ public class SubStringTest {
 		params.put(merorderno_str,"fff");
 		params = stringTest.params2SignStr(params);
 		System.out.println(params.toString());
+	}
+
+	private void testSubBehand(){
+		SubStringTest stringTest = new SubStringTest();
+		String str = "site_data_20140213";
+		String strDay = "site_day_data_20130409";
+		String strHour = "site_hour_data_20130603";
+		stringTest.subBehand(str);
+		stringTest.subBehand(strDay);
+		stringTest.subBehand(strHour);
+		/**------------------------------------------*/
+		stringTest.subFunctionName("duringAfterHappen(0,s)");
+		stringTest.getParam("duringAfterHappen(0,s)");
+	}
+
+	private static void testForSubstring(){
+		System.out.println(forSubstring("&bus&car"));
+	}
+			
+	public static void main(String[] args) {
+		testForSubstring();
 	}
 }

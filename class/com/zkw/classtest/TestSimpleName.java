@@ -16,5 +16,8 @@ public class TestSimpleName {
 	public static void main(String[] args) {
 		System.out.println(TestSimpleName.class);
 		System.out.println(TestSimpleName.class.getSimpleName());
+		System.out.println(TestSimpleName.class.getName());
+		System.out.println(TestSimpleName.class.getCanonicalName());
+		System.out.println(TestSimpleName.class.getTypeName());
 	}
 }

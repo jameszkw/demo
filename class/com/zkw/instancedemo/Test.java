@@ -17,7 +17,14 @@ public class Test {
         Class.forName("com.zkw.instancedemo.Son");
         new Son();
     }
+
+    static void equalsObject(){
+        Object a = new Object();
+        Object b = new Object();
+        System.out.println(a == b);
+    }
     public static void main(String[] args){
-        instanceTest();
+//        instanceTest();
+        equalsObject();
     }
 }
