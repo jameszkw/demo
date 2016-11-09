@@ -1,5 +1,7 @@
 package com.zkw.array;
 
+import java.util.Arrays;
+
 /**
  * @Description: TODO(这里用一句话描述这个类的作用)
  * @author James.zhang
@@ -30,12 +32,16 @@ public class ArrayTest {
 		}
 		return d[d.length - 1];
 	}
+
+	private static void copyTest(){
+		int[] arr = {1,2,3,4};
+		int[] arr1 = Arrays.copyOf(arr,arr.length+1);
+		for (int i:arr1){
+			System.out.println(i);
+		}
+	}
+
 	public static void main(String[] args) {
-		ArrayTest a = new ArrayTest();
-		Double[] d = { 1.3, 6.52, 2.0, 3.5, 9.3, 7.0, 8.0, 2.1 };
-		a.getMax(d);
-		a.getMin(d);
-		System.out.println(a.getMax(d));
-		
+		copyTest();
 	}
 }

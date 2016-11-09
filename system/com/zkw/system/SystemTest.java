@@ -7,8 +7,14 @@ package com.zkw.system;
  *
  */
 public class SystemTest {
-	public static void main(String[] args) {
+	private static void getEnvDemo(){
+		System.out.println(System.getenv("PORT"));
+	}
+	private static void getPropertyDemo(){
 		String dir = System.getProperty("os.name");
 		System.out.println(dir);
+	}
+	public static void main(String[] args) {
+		getEnvDemo();
 	}
 }
