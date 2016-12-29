@@ -1,5 +1,8 @@
 package com.zkw.utils;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,6 +11,7 @@ import java.util.regex.Pattern;
  * 正则工具类
  */
 public class Utils {
+    private final Logger log = LogManager.getLogger(this.getClass());
     /**
      * 获取占位符中的内容
      */

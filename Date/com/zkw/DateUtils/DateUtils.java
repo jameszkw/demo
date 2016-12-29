@@ -42,8 +42,10 @@ public class DateUtils {
 		Date currDate = new Date(millis);
 		return currDate;
 	}
-
-	public static String tomorrow(){
+	/**
+	 * 时间加减方法一
+	 * */
+	public static String tomorrow1(){
 		Date date=new Date();
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
@@ -53,11 +55,25 @@ public class DateUtils {
 		String dateString = formatter.format(date);
 		return dateString;
 	}
+
+	/**
+	 * 时间加减方法一
+	 * */
+	public static void tomorrow2(){
+		Date d=new Date();
+		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println("今天的日期："+df.format(d));
+		System.out.println("两天前的日期：" + df.format(new Date(d.getTime() - 2 * 24 * 60 * 60 * 1000)));
+		System.out.println("三天后的日期：" + df.format(new Date(d.getTime() + 3 * 24 * 60 * 60 * 1000)));
+	}
+
+
 	public static void main(String[] args) {
 //		System.out.println(getDateByInt(1399442729358));
 		Date date = new Date();
 		System.out.println(date.getTime());
 //		System.out.println(millisTurnDate(Long.parseLong("1401423929206")));
-		System.out.println(tomorrow());
+		System.out.println(tomorrow1());
+		tomorrow2();
 	}
 }
