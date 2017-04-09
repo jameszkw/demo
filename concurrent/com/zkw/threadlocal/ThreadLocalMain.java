@@ -1,30 +1,44 @@
 package com.zkw.threadlocal;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
- * Created by Administrator on 2016/4/24 0024.
+ * ThreadLocal测试demo
  */
 public class ThreadLocalMain {
+    private static ThreadLocal<SimpleDateFormat> tl = new ThreadLocal<SimpleDateFormat>();
 
-    private void test() {
-        ThreadLocal threadLocal = new ThreadLocal();
-        threadLocal.set("string");
-        System.out.println(threadLocal.get());
-    }
+    public static class ParseDate implements Runnable {
+        int i = 0;
 
-    private void initTest(){
-        ThreadLocal threadLocal = new ThreadLocal(){
-            @Override
-            protected Object initialValue() {
-                return "init value";
+        public ParseDate(int i) {
+            this.i = i;
+        }
+
+        public void run() {
+            if (tl.get() == null) {
+                tl.set(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
             }
-        };
-        System.out.println(threadLocal.get());
+            try {
+                Date t=tl.get().parse("2017-04-09 19:27:"+i%60);
+                System.out.println(i+":"+t);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 
     public static void main(String[] args) {
         ThreadLocalMain main = new ThreadLocalMain();
-        main.test();
-        main.initTest();
+        ExecutorService exe= Executors.newFixedThreadPool(30);
+        for (int i=0;i<1000;i++){
+            exe.execute(new ParseDate(i));
+        }
     }
 
 }

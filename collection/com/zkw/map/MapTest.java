@@ -10,6 +10,14 @@ import java.util.Map;
  *
  */
 public class MapTest {
+    private static void typeValueMap(){
+        Map map = new HashMap();
+        map.put("key1",2);
+        map.put("key2","asdf");
+
+        System.out.println(map.get("key1"));
+        System.out.println(map.get("key2"));
+    }
 	public static void main(String[] args) {
         Map<String, String> map = new HashMap<String, String>();
         map.put("key1", "value1");
@@ -34,5 +42,6 @@ public class MapTest {
     //打印VALUE值
          System.out.println(mapValue.get(0));
 
+        typeValueMap();
 	}
 }
