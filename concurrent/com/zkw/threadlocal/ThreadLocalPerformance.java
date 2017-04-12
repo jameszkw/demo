@@ -58,8 +58,10 @@ public class ThreadLocalPerformance {
         }
         long totaltime=0;
         for (int i=0;i<THEAD_COUNT;i++){
+            System.out.println("before");
             totaltime+=f[i].get();
         }
+        System.out.println("after");
         System.out.println("多线程访问同一个Random实例："+totaltime+"ms");
 
         //ThreadLocal的情况
