@@ -1,6 +1,7 @@
 package com.xtwy.pb;
 
-import com.xtwy.user.UserService;
+import com.zkw.protobuf.pb.UserProtobuf;
+import com.zkw.protobuf.user.UserService;
 import org.junit.Test;
 
 /**

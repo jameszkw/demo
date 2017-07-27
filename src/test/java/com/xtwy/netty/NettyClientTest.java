@@ -1,5 +1,6 @@
 package com.xtwy.netty;
 
+import com.zkw.netty.DiscardClient;
 import org.junit.Test;
 
 /**

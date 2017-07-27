@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Premain-Class: com.zkw.instru.demo.agent.HelloWorld
-Created-By: 1.8.0_77
-
