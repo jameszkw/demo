@@ -8,7 +8,7 @@ import io.netty.channel.ChannelHandlerContext;
  * Created by Administrator on 2016/4/16 0016.
  */
 public class DiscardServerHandler extends ChannelHandlerAdapter {
-    @Override
+//    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 		System.out.println("server handler read: "+msg);
 		//处理业务代码

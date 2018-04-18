@@ -9,7 +9,7 @@ import io.netty.util.AttributeKey;
  * Created by Administrator on 2016/4/19 0019.
  */
 public class PbClientHandler extends ChannelHandlerAdapter{
-    @Override
+//    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         UserProtobuf.User user = (UserProtobuf.User) msg;
         ctx.channel().attr(AttributeKey.valueOf(CommonConstant.ATTRIBUTE_KEY)).set(user);

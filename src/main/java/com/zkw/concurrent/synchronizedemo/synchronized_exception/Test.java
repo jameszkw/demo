@@ -1,0 +1,25 @@
+package com.zkw.concurrent.synchronizedemo.synchronized_exception;
+
+/**
+ * ${DESCRIPTION}
+ *
+ * @author James
+ * @create 2018-02-28 下午 2:06
+ **/
+
+public class Test {
+    public static void main(String[] args) {
+        try {
+            Service service=new Service();
+            ThreadA a=new ThreadA(service);
+            a.setName("a");
+            a.start();
+            Thread.sleep(500);
+            ThreadB b=new ThreadB(service);
+            b.setName("b");
+            b.start();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}

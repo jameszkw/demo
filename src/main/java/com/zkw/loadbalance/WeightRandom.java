@@ -29,7 +29,7 @@ public class WeightRandom {
         for (Map.Entry<String, Integer> entry : entrysSet) {
             String server = entry.getKey();
             Integer weight = entry.getValue();
-            for (int i = 0; i < weight; i++) {
+            for (int i = 0; i < 3; i++) {
                 serverList.add(server);
             }
         }

@@ -8,7 +8,6 @@ import io.netty.channel.ChannelHandlerContext;
  * Created by Administrator on 2016/4/19 0019.
  */
 public class PbServerHandler extends ChannelHandlerAdapter{
-    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         RequestMsgProtobuf.RequestMsg requestMsg = (RequestMsgProtobuf.RequestMsg)msg;
         String cmd = requestMsg.getCmd();

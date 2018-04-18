@@ -16,7 +16,7 @@ public class SocketClient {
 	            socket = new Socket("127.0.0.1", 10000);  
 				//send
 				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-				bw.write("dddddddd");
+				bw.write("ddddddddquit");
 				bw.flush();
 				bw.close();
 //	            out = new PrintWriter(socket.getOutputStream(), true);  
